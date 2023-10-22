@@ -1,0 +1,151 @@
+/* navbar section start */
+.nav {
+	width: 100%;
+	background-color: #8fe2ef;
+	height: 65px;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	z-index: 10001;
+	.nav-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		.nav-logos {
+			display: flex;
+			align-items: center;
+
+			.nav-logo {
+				position: relative;
+				width: 120px;
+				height: 50px;
+			}
+			.hambarger-menu {
+				position: absolute;
+				top: auto;
+				right: 0;
+				width: 20px;
+				height: 20px;
+				display: none;
+			}
+		}
+
+		.nav-wrapper {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			.nav-menus {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 30px;
+				ul {
+					li {
+						display: inline-block;
+						margin-left: 15px;
+						position: relative;
+						.sub-menu {
+							overflow: hidden;
+							padding: 5px;
+							transition: 0.1s all ease-out;
+							width: max-content;
+							position: absolute;
+							background-color: white;
+							min-width: 200px;
+							top: 45px;
+							display: none;
+							border-radius: 5px;
+							box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+							li {
+								display: block;
+								border-radius: 5px;
+								font-size: 15px;
+								text-transform: capitalize;
+								font-weight: 500;
+								cursor: pointer;
+								margin-left: 0;
+								&:hover {
+									color: white;
+									background-color: $blue;
+								}
+								a {
+									color: inherit;
+									padding: 5px 10px;
+									&::after {
+										display: none;
+									}
+								}
+							}
+						}
+						&:first-child {
+							margin-left: 0;
+						}
+
+						&:hover .sub-menu {
+							display: block;
+							transition: 0.3s all ease-in;
+						}
+						a {
+							padding: 15px 0;
+							display: block;
+							font-size: 16px;
+							text-transform: capitalize;
+							font-weight: 500;
+							cursor: pointer;
+							position: relative;
+							color: inherit;
+							&::after {
+								position: absolute;
+								top: 40px;
+								left: 0;
+								width: 0;
+								content: '';
+								color: transparent;
+								background: $blue;
+								height: 2px;
+								transition: 0.5s all ease-in-out;
+							}
+							&:hover::after {
+								position: absolute;
+								left: 0;
+								width: 100%;
+								content: '';
+								color: transparent;
+								background: $blue;
+								height: 2px;
+								transition: 0.5s all ease-in-out;
+								z-index: 101;
+							}
+						}
+						.nav-menu-icon {
+							width: 12px;
+							height: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav-login-button {
+	font-size: 16px !important;
+	padding: 5px 15px !important;
+	color: white;
+	border: 1px solid $blue !important;
+}
+.nav-trial-button {
+	font-size: 16px !important;
+	padding: 5px 15px !important;
+	color: white;
+	background: $blue;
+}
+/* dropdown */
+
+.nav-button {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}

@@ -1,0 +1,142 @@
+.dashboard_content_area .dashboard_content_title {
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.dashboard_content_area .dashboard_billing_section {
+	padding: 20px;
+	border-radius: 15px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	background-color: white;
+	.dashboard_billing_section_title {
+		font-size: 20px;
+		margin-bottom: 5px;
+		font-weight: 500;
+		text-transform: capitalize;
+	}
+	.dashboard_billing_section_subtitle {
+		color: $subtitle-color;
+	}
+	.dashboard_billing_table_wrapper {
+		.dashboard_billing_table {
+			width: 100%;
+
+			thead {
+				tr {
+					th {
+						padding: 0px 5px 30px 5px;
+						text-align: left;
+						text-transform: capitalize;
+						position: relative;
+						color: rgba(0, 0, 0, 0.733);
+						&::after {
+							position: absolute;
+							content: '';
+							top: 0;
+							right: 0;
+							width: 1px;
+							height: 100%;
+							background-color: $devider-color;
+						}
+					}
+				}
+			}
+			tbody {
+				tr {
+					position: relative;
+					&:last-child {
+						&::after {
+							display: none;
+						}
+					}
+					&::after {
+						position: absolute;
+						content: '';
+						width: 100%;
+						height: 1px;
+						background-color: $devider-color;
+						bottom: 0;
+						left: 0;
+					}
+					td {
+						padding: 20px 5px;
+						text-align: left;
+						text-transform: capitalize;
+						font-size: 15px;
+						font-weight: 700;
+						color: $text-color;
+						&:last-child {
+							max-width: 180px;
+						}
+
+						.billing_invoice_number_wrapper {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+							.invoice_icon {
+								color: $blue;
+								font-size: 16px;
+								cursor: pointer;
+								width: 25px;
+								transition: ease 0.5s;
+								&:hover {
+									transform: scale(1.3);
+									transition: ease 0.5s;
+								}
+							}
+						}
+						.billing_invoice_issue_date_wraaper {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+							font-size: 11px;
+							color: $subtext-color;
+						}
+						.billing_invoice_due_date {
+							margin: 0;
+						}
+						.billing_invoice_amount {
+							margin: 0;
+						}
+						.billing_invoice_status_wrapper {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+							text-transform: uppercase;
+							.status_true {
+								color: rgb(29, 131, 29);
+							}
+							.status_false {
+								color: rgb(170, 170, 68);
+							}
+						}
+						.billing_invoice_payment_method {
+							display: flex;
+							flex-direction: column;
+
+							.billing_invoice_payment_toptitle {
+								font-size: 12px;
+							}
+							.billing_invoice_payment_title {
+								display: flex;
+								align-items: center;
+								gap: 10px;
+								.card_image {
+									position: relative;
+									// height: 20px;
+									// width: 50px;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+								}
+							}
+							p {
+								margin: 0;
+								font-size: 11px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

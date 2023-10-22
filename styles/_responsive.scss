@@ -1,0 +1,370 @@
+@import 'variables';
+
+/* Full HD - TV Layout: Common */
+@media only screen and (min-width: 2200px) and (max-width: 4000px) {
+}
+/* Full HD - TV Layout: 2560px. */
+@media only screen and (min-width: 2560px) and (max-width: 4000px) {
+}
+/* Full HD - Small TV Layout: 2400px. */
+@media only screen and (min-width: 2200px) and (max-width: 2559px) {
+}
+/* HD Layout: 1920px. */
+@media only screen and (min-width: 1601px) and (max-width: 2200px) {
+}
+/* Laptop with HDPI: 1440px */
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+}
+/* Normal PC: 1366px */
+@media only screen and (min-width: 1301px) and (max-width: 1399px) {
+}
+/* Laptop with MDPI: 1280px */
+@media only screen and (min-width: 1201px) and (max-width: 1300px) {
+}
+/* Medium Layout(Vertical): 1080px. */
+@media only screen and (max-width: 1200px) {
+	.nav-wrapper {
+		display: none !important;
+	}
+	.nav-wrapper-show {
+		display: block;
+	}
+
+	.hambarger-menu {
+		display: block !important;
+	}
+	// hamburger menu
+	.nav {
+		.mobile-nav-container {
+			position: relative;
+
+			.mobile-nav-wrapper {
+				width: 120%;
+				height: 100vh;
+				position: absolute;
+				top: 50px;
+				right: -50px;
+				backdrop-filter: blur(100px);
+
+				.mobile-nav-menus {
+					float: right;
+					background: #8fe2ef;
+					padding: 10px 20px;
+					min-width: 60%;
+					height: 100vh;
+					color: black;
+					overflow: auto;
+					transition: 0.1s all ease-out;
+					ul {
+						li {
+							display: flex;
+							flex-direction: column;
+
+							.sub-menu {
+								padding: 10px;
+								transition: 0.1s all ease-out;
+								width: max-content;
+								// position: absolute;
+								// background-color: white;
+								min-width: 200px;
+								display: none;
+								border-radius: 5px;
+
+								li {
+									display: flex;
+									margin-left: 20px !important;
+									border-radius: 5px;
+									font-size: 15px;
+									text-transform: capitalize;
+									font-weight: 500;
+									cursor: pointer;
+
+									a {
+										color: inherit;
+										padding: 10px;
+										&::after {
+											display: none;
+										}
+									}
+								}
+							}
+
+							&:hover .sub-menu {
+								display: block;
+								transition: 0.3s all ease-in;
+							}
+							a {
+								padding: 15px 0;
+								display: block;
+								font-size: 16px;
+								text-transform: capitalize;
+								font-weight: 500;
+								cursor: pointer;
+								color: inherit;
+							}
+							.nav-menu-icon {
+								width: 12px;
+								height: 12px;
+							}
+						}
+					}
+				}
+				.nav-button {
+					margin-top: 20px;
+					.nav-login-button {
+						font-size: 16px !important;
+						padding: 5px 15px !important;
+						color: white;
+						background: $blue;
+					}
+					.nav-trial-button {
+						font-size: 16px !important;
+						padding: 5px 15px !important;
+						color: white;
+						background: $blue;
+					}
+					.common-button {
+						padding: 6px 30px;
+						border: none;
+						border-radius: 5px;
+						font-size: 17px;
+						font-weight: 600;
+						text-transform: capitalize;
+						&:hover {
+							background-color: $blue-hover;
+							color: white;
+						}
+						a {
+							color: inherit;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Medium Layout(iPad Pro): 1024px. */
+@media only screen and (max-width: 1050px) {
+	.hero-section {
+		.hero-title {
+			font-size: 30px;
+		}
+		.hero-subtitle {
+			font-size: 20px;
+		}
+	}
+	.signup-content-area {
+		padding: 0 !important;
+	}
+}
+/* Tablet Layout: 768px. */
+@media only screen and (max-width: 991px) {
+	.manual-section {
+		.content-title {
+			font-size: 18px !important;
+		}
+		.manual-image-line {
+			display: flex;
+			justify-content: center;
+		}
+		.manual-item {
+			margin-top: 50px !important;
+
+			.fade-image {
+				display: none;
+			}
+		}
+		.line-image {
+			display: none;
+		}
+		.manual-info-step-right {
+			text-align: start !important;
+			margin-bottom: 50px;
+			h3 {
+				font-size: 18px !important;
+			}
+		}
+
+		.manual-info h3 {
+			font-size: 18px !important;
+		}
+	}
+	.task-count-section {
+		.task-count-title {
+			font-size: 22px;
+		}
+		.task-count-subtitle {
+			font-size: 14px;
+		}
+		.card-info {
+			h3 {
+				font-size: 18px;
+			}
+			p {
+				font-size: 13px;
+			}
+		}
+	}
+	.signin-content-area {
+		.from-content {
+			padding: 10px;
+			background: black;
+			.image-area {
+				.form-image-wrapper {
+					display: none;
+				}
+			}
+		}
+	}
+	.signup-content-area {
+		.from-content {
+			padding: 10px;
+			background: black;
+			.image-area {
+				.form-image-wrapper {
+					display: none;
+				}
+			}
+		}
+	}
+	// dashboard
+
+	.ant-layout-sider {
+		display: none;
+	}
+
+	.ant-layout-header {
+		justify-content: flex-end !important;
+		.dashboard-header {
+			display: none !important;
+		}
+		.dashboard-header-profile-widgets {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 30px !important;
+		}
+	}
+}
+
+/* Mobile Layout: 375px. */
+@media only screen and (max-width: 769px) {
+	.footer-section {
+		h5 {
+			margin-top: 30px;
+		}
+	}
+
+	.common-button {
+		padding: 5px 10px !important;
+		border: none;
+		border-radius: 5px;
+		font-size: 13px !important;
+	}
+	.bg-common-button {
+		padding: 5px 10px !important;
+		border: none;
+		border-radius: 5px;
+		font-size: 13px !important;
+	}
+	.task-count-section {
+		.card-body-marchant {
+			margin-top: 50px;
+		}
+		.task-count-title {
+			font-size: 16px;
+		}
+		.task-count-subtitle {
+			font-size: 12px;
+		}
+	}
+	/* feature-section */
+	.feature-section {
+		.feature-item {
+			.feature-card-item {
+				.feature-card-info {
+					.feature-card-info-title {
+						font-size: 16px !important;
+					}
+					.feature-card-info-subtitle {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+	.dashboard-profile-section {
+		margin-top: 10px;
+	}
+}
+/* Wide Mobile Layout(Nexus 7): 600px. */
+@media only screen and (max-width: 610px) {
+	.sponsor-image-wrapper .swiper-slide.swiper-slide-active {
+		display: flex !important;
+		justify-content: center !important;
+	}
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (max-width: 500px) {
+}
+/* Mobile Layout(Samsung Galaxy S5): 360px. */
+@media only screen and (max-width: 370px) {
+}
+/* Mobile Layout(iPhone 4): 320px. */
+@media only screen and (max-width: 330px) {
+	.nav-logos {
+		width: 5px !important;
+		height: 50px !important;
+	}
+	.sponsor-image-wrapper .swiper-slide.swiper-slide-active {
+		display: flex !important;
+		justify-content: center !important;
+	}
+	.testimonials-info {
+		padding: 0 !important;
+		h5 {
+			font-size: 16px;
+			margin-top: 50px;
+		}
+		h3 {
+			font-size: 18px;
+		}
+	}
+	.feedback {
+		font-size: 14px;
+		margin-top: -30px;
+	}
+	.client-info {
+		font-size: 14px;
+	}
+	.testimonials-slider {
+		.swiper-action {
+			bottom: -30px !important;
+		}
+		.swiper-button-prev {
+			width: 30px !important;
+			height: 30px !important;
+			margin-left: -60px !important;
+		}
+		.swiper-button-next {
+			width: 30px !important;
+			height: 30px !important;
+		}
+	}
+	// dashboard
+	.ant-layout-header {
+		justify-content: space-between !important;
+
+		.dashboard-header-profile-widgets {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+			width: 100%;
+		}
+		.avatar-author-name {
+			display: none;
+		}
+	}
+}

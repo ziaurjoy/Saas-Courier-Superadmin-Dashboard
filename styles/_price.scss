@@ -1,0 +1,370 @@
+.price_section_wrapper {
+	padding: 50px 0px;
+	.page_title {
+		text-align: center;
+		font-size: 32px;
+		text-transform: uppercase;
+	}
+}
+.price_section_wrapper .price_section_title {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	color: white;
+}
+
+// price section price plan part
+.price_section_wrapper .price_plan_section_wrapper {
+	background-color: white;
+	padding: 40px 20px;
+	border-radius: 20px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+	// price plan section
+	.price_plan_section {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		gap: 20px;
+		flex-wrap: wrap;
+
+		.price_plan_section_card {
+			max-width: 280px;
+			width: 100%;
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			padding: 40px 20px;
+			border-radius: 10px;
+			position: relative;
+
+			&:nth-child(2) {
+				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+			}
+
+			.price_offer_tag_wrapper {
+				position: absolute;
+				top: -15px;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 3px 10px;
+				box-shadow: rgba(64, 164, 189, 0.5) 0px 1px 4px;
+				border-radius: 15px;
+				display: inline-block;
+				background-color: white;
+				width: max-content;
+				.price_offer_tag {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+					font-size: 12px;
+					font-weight: 600;
+					text-transform: capitalize;
+					color: $title-color;
+				}
+			}
+
+			.price_plan_section_card_title {
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				.card_title {
+					margin: 0;
+					text-transform: uppercase;
+					font-size: 20px;
+
+					color: $price-title-color;
+					font-weight: 600;
+				}
+			}
+			.price_plan_body {
+				margin: 20px 0;
+				.price_plan_section_card_price {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					.card_price_wrapper {
+						display: flex;
+						align-items: center;
+						gap: 5px;
+
+						color: $price-title-color;
+						.card_price_symbol {
+							font-size: 32px;
+							font-weight: 700;
+							margin: -5px 0 0 0;
+						}
+						.card_price {
+							font-size: 32px;
+							font-weight: 700;
+							margin: 0 !important;
+						}
+					}
+					.card_price_month {
+						font-size: 14px;
+						font-weight: 500;
+						color: $gray-text;
+					}
+				}
+				.card_plan_list_wrapper {
+					margin-top: 30px;
+
+					.card_plan_list {
+						margin: 5px 0;
+						padding: 5px 0;
+						display: flex;
+						align-items: center;
+						font-size: 12px;
+
+						gap: 5px;
+						position: relative;
+						.item_list_icon {
+							color: teal;
+						}
+						.item_list_title {
+							margin: 0;
+						}
+						&::after {
+							position: absolute;
+							content: '';
+							width: 100%;
+							height: 1px;
+							background: rgb(226, 225, 225);
+							bottom: -3px;
+						}
+						&:last-child::after {
+							display: none;
+						}
+					}
+				}
+			}
+			.price_plan_button {
+				width: 100%;
+				padding: 6px 10px;
+				color: teal;
+				border: 1px solid teal;
+				border-radius: 10px;
+				font-weight: 600;
+				&:hover {
+					color: white;
+					background-color: teal;
+				}
+			}
+		}
+	}
+	// price compare section
+	.price_compare_section {
+		margin-top: 50px;
+		.price_compare_section_title {
+			text-align: center;
+			font-size: 30px;
+			color: $gray-text;
+		}
+		.price_compare_table_wrapper {
+			padding-top: 40px;
+			overflow-x: scroll;
+			.price_compare_table {
+				width: 100%;
+				.price_compare_tablehead,
+				.price_compare_tablebody {
+					text-align: center;
+				}
+				.price_compare_tablehead {
+					tr {
+						th {
+							padding: 20px 10px;
+							background-color: $secondary-color;
+							color: black;
+							font-size: 18px;
+							text-transform: capitalize;
+							font-weight: 600;
+							p {
+								margin: 0;
+							}
+							span {
+								font-weight: 500;
+								font-size: 16px;
+							}
+							&:nth-child(1) {
+								min-width: 250px;
+								background-color: white;
+								color: $subtext-color;
+							}
+							// &:nth-child(2) {
+							// 	background-color: #ffd928;
+							// }
+							// &:nth-child(3) {
+							// 	background-color: #25b7ff;
+							// }
+							// &:nth-child(4) {
+							// 	background-color: #32303f;
+							// }
+						}
+					}
+				}
+				.price_compare_tablebody {
+					tr {
+						td {
+							font-size: 16px;
+							font-weight: 600;
+							padding: 20px 10px;
+							// min-width: 250px;
+							border-bottom: 1px solid $devider-color;
+
+							&:first-child {
+								min-width: 250px;
+								font-size: 14px;
+								color: $price-title-color;
+							}
+							.price_compare_feature_wrapper {
+								display: flex;
+								align-items: center;
+								gap: 8px;
+							}
+							.item_list_icon {
+								color: teal;
+							}
+							.item_icon_true {
+								color: teal;
+							}
+							.item_icon_false {
+								color: rgba(219, 89, 100, 0.795);
+							}
+							&:nth-child(odd) {
+								background: white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// @media only screen and (max-width: 768px) {
+// 	.price_section_wrapper .price_section_title {
+// 		font-size: 22px;
+// 	}
+// 	// price section head part
+
+// 	.price_section_wrapper .price_section_head_item_wrapper {
+// 		margin-top: 30px;
+
+// 		.price_section_head_item {
+// 			.price_section_head_image_wrapper {
+// 				height: 100px;
+// 			}
+// 			.price_section_head_info {
+// 				max-width: 300px;
+// 				.price_section_head_info_title {
+// 					font-size: 16px;
+// 					font-weight: 500;
+// 					margin: 10px 0;
+// 				}
+// 				.price_section_head_info_des {
+// 					font-size: 12px;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	.price_section_wrapper .price_plan_section_wrapper .price_plan_section_card {
+// 		max-width: 300px;
+// 		.price_plan_section_card_title {
+// 			padding: 15px 0;
+// 			.card_title {
+// 				font-size: 18px;
+// 			}
+// 		}
+// 		.price_plan_body {
+// 			padding: 20px;
+
+// 			.price_plan_section_card_price {
+// 				.card_price_wrapper {
+// 					.card_price_symbol {
+// 						font-size: 14px;
+// 						margin: -5px 0 0 0;
+// 					}
+// 					.card_price {
+// 						font-size: 18px;
+// 					}
+// 				}
+// 				.card_price_month {
+// 					font-size: 14px;
+// 				}
+// 			}
+// 			.card_plan_list_wrapper {
+// 				margin-top: 20px;
+// 				font-size: 12px;
+// 			}
+// 		}
+// 	}
+
+// 	// price compare section
+// 	.price_section_wrapper .price_compare_section {
+// 		margin-top: 50px;
+// 		.price_compare_section_title {
+// 			font-weight: 500;
+// 			font-size: 24px;
+// 		}
+// 		.price_compare_table_wrapper {
+// 			.price_compare_table {
+// 				width: 100%;
+// 				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+// 				background-color: #f8f8fa;
+// 				.price_compare_tablehead,
+// 				.price_compare_tablebody {
+// 					text-align: center;
+// 				}
+// 				.price_compare_tablehead {
+// 					tr {
+// 						th {
+// 							padding: 15px;
+
+// 							font-size: 16px;
+
+// 							p {
+// 								margin: 0;
+// 							}
+// 							span {
+// 								font-weight: 500;
+// 								font-size: 14px;
+// 							}
+// 						}
+// 					}
+// 				}
+// 				.price_compare_tablebody {
+// 					tr {
+// 						td {
+// 							font-size: 14px;
+// 							font-weight: 500;
+// 							padding: 15px;
+// 							min-width: 140px;
+// 							&:first-child {
+// 								min-width: 270px;
+// 							}
+// 							.price_compare_feature_wrapper {
+// 								gap: 5px;
+// 							}
+// 						}
+// 					}
+// 					.price_compare_button_row {
+// 						td {
+// 							.price_compare_button {
+// 								font-size: 12px;
+// 								padding: 3px;
+// 								font-weight: 500;
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+@media only screen and (min-width: 1440px) {
+	.price_section_wrapper .price_plan_section_wrapper {
+		margin-top: -20vh;
+	}
+}
