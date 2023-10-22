@@ -16,12 +16,12 @@ import { apiUrl } from '../../services/api/apiUrls';
 
 const ViewTenant = () => {
   const router = useRouter();
-  const [deliveryStepData, setDeliveryStepData] = useState()
+  const [tenantData, setTenantData] = useState()
 
-  const getDeliveryStepData = async (id) => {
-    return await authApi.get(BaseApiUrl + apiUrl.deliveryStepSection + id)
+  const getTenantData = async (id) => {
+    return await authApi.get(BaseApiUrl + 'api/user/tenant/' + id)
       .then((res) => {
-        setDeliveryStepData(res?.data)
+        setTenantData(res?.data)
       })
       .catch(err => console.log(err))
   }
@@ -35,7 +35,7 @@ const ViewTenant = () => {
 
   useEffect(() => {
     if (router?.query?.id) {
-      getDeliveryStepData(router?.query?.id)
+      getTenantData(router?.query?.id)
     }
   }, [router])
 
