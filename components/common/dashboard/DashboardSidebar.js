@@ -124,13 +124,9 @@ function DashboardSidebar() {
 
 
           <Menu.SubMenu key="tanent-page" title="Tanents" icon={< LayoutOutlined />}>
-
-            <Menu.Item onClick={() => router.push("/tanent")} icon={<MenuUnfoldOutlined />} key="general-setting-list">
+            <Menu.Item onClick={() => router.push("/tenant")} icon={<MenuUnfoldOutlined />} key="general-setting-list">
               <span className="nav-text">List</span>
             </Menu.Item>
-            {/* <Menu.Item onClick={() => router.push("/landing-page/general-setting/create")} icon={<PlusSquareOutlined />} key="general-setting-create">
-              <span className="nav-text">Create</span>
-            </Menu.Item> */}
           </Menu.SubMenu>
 
         </Menu>

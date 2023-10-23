@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 import { Table, Button, Space } from 'antd';
 import { Card, CardBody, Col } from "reactstrap"
@@ -17,7 +18,8 @@ import SwalAlert from '../../components/SwalAlert/SwalAlert';
 
 
 const Tanents = () => {
-  const [featureData, setFeatureData] = useState()
+  const router = useRouter();
+  const [tenantData, setTenantData] = useState()
 
   const deleteAction = async (e, id) => {
 
@@ -26,10 +28,10 @@ const Tanents = () => {
       async function (result) {
         if (result.value) {
           await authApi
-            .delete(BaseApiUrl + apiUrl.featureSection + id)
+            .delete(BaseApiUrl + apiUrl.tenant + id)
             .then((response) => {
               SwalAlert("Deleted Successfully")
-              getFeatureData()
+              getTenantData()
               toast.success("Deleted Successfully !");
             }).catch((error) => { toast.error("Deleted Failed !"); })
         }
@@ -38,10 +40,34 @@ const Tanents = () => {
   }
 
 
-  const getFeatureData = async () => {
-    return await authApi.get(BaseApiUrl + 'api/user/tenant')
+  const TenantStatusUpdate = async (e, id, values) => {
+
+    e.preventDefault()
+    return SwalDeleteConfirm(`Will update it?`, "Update").then(
+      async function (result) {
+        if (result.value) {
+          const formData = new FormData();
+          formData.append("is_active", values);
+
+          await authApi.patch(BaseApiUrl + apiUrl.tenant + id + '/', formData).then((response) => {
+            SwalAlert('Status Update')
+            getTenantData()
+            toast.success('Status Update')
+            
+          }).catch((err) => {
+            toast.error(`Status Update Failed ${err}`)
+          })
+        }
+      }
+    )
+
+  };
+
+
+  const getTenantData = async () => {
+    return await authApi.get(BaseApiUrl + apiUrl.tenant)
       .then((res) => {
-        setFeatureData(res.data)
+        setTenantData(res.data)
       })
       .catch(err => console.log(err))
   }
@@ -50,45 +76,18 @@ const Tanents = () => {
 
   const columns = [
     {
-      title: 'Domain',
-      dataIndex: 'domain',
+      title: 'organization_name',
+      dataIndex: 'organization_name',
     },
 
     {
-      title: 'Schema name',
-      dataIndex: ['tenant', 'schema_name'],
+      title: 'schema_name',
+      dataIndex: 'schema_name',
     },
 
-    {
-      title: 'Organization name',
-      dataIndex: ['tenant', 'organization_name'],
-    },
-
-    {
-      title: 'Is active',
-      dataIndex: ['tenant', 'is_active'],
-    },
     {
       title: 'Established on',
-      dataIndex: ['tenant', 'established_on'],
-    },
-
-    {
-      title: 'Active',
-      render: (_, record) => (
-        <Space size="middle">
-          {record?.tenant?.is_active ?
-            <Button type="primary" >
-              {record?.tenant?.is_active.toString().toUpperCase()}
-            </Button>
-            :
-            <Button type="primary" danger>
-              {record?.tenant?.is_active.toString().toUpperCase()}
-              {/* Edit */}
-            </Button>
-          }
-        </Space>
-      ),
+      dataIndex: 'established_on',
     },
 
     {
@@ -97,11 +96,24 @@ const Tanents = () => {
       render: (_, record) => (
         <Space size="middle">
           <li style={{ padding: '5px' }}>
-            <Link href={`/landing-page/feature/${record?.id}`}>
+            <Link href={`tenant/${record?.user}`}>
               <Button type="primary">
                 View
               </Button>
             </Link>
+          </li>
+          <li style={{ padding: '5px' }}>
+            {record?.is_active? 
+            <Button onClick={(e) => { TenantStatusUpdate(e,record?.id, false) }} type="primary" info>
+                Active
+              </Button>
+              :
+              <Button onClick={(e) => { TenantStatusUpdate(e, record?.id, true) }} className='bg-warning' type="primary" info>
+                In Aeactive
+              </Button>
+              
+            }
+            
           </li>
           <li >
             <Button onClick={(e) => { deleteAction(e, record.id) }} type='primary' danger>
@@ -115,7 +127,7 @@ const Tanents = () => {
   ];
 
   useEffect(() => {
-    getFeatureData()
+    getTenantData()
   }, []);
 
 
@@ -132,7 +144,7 @@ const Tanents = () => {
             <h3> Tanent </h3>
           </div>
           <hr></hr>
-          <Table scroll={{ x: true }} columns={columns} dataSource={featureData} pagination={2} />
+          <Table scroll={{ x: true }} columns={columns} dataSource={tenantData} pagination={2} />
         </CardBody>
       </Card>
     </Col>
