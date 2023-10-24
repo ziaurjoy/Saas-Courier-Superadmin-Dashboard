@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import * as qs from 'qs'
 
 import { Table, Button, Space } from 'antd';
+// import { SearchOutlined } from '@ant-design/icons';
 import { Card, CardBody, Col } from "reactstrap"
 
 import toast, { Toaster } from 'react-hot-toast'
@@ -21,6 +23,21 @@ const Tanents = () => {
   const router = useRouter();
   const [tenantData, setTenantData] = useState()
 
+  const [tableParams, setTableParams] = useState({
+    pagination: {
+      current: 1,
+      // pageSize: GENERAL_ROW_SIZE,
+      pageSize: 2
+    },
+  })
+
+  const [filterQuery, setFilterQuery] = useState({
+    page: 1,
+    // page_size: GENERAL_ROW_SIZE,
+    page_size: 2
+  })
+
+
   const deleteAction = async (e, id) => {
 
     e.preventDefault()
@@ -38,7 +55,6 @@ const Tanents = () => {
       }
     )
   }
-
 
   const TenantStatusUpdate = async (e, id, values) => {
 
@@ -65,23 +81,60 @@ const Tanents = () => {
 
 
   const getTenantData = async () => {
-    return await authApi.get(BaseApiUrl + apiUrl.tenant)
+    return await authApi.get(BaseApiUrl + apiUrl.tenant + `?${qs.stringify(filterQuery)}`)
       .then((res) => {
-        setTenantData(res.data)
+        setTenantData(res?.data?.results)
+        updatePagination({
+          current: res?.data?.page_number,
+          pageSize: res?.data?.page_size,
+          total: res?.data?.count,
+        })
       })
       .catch(err => console.log(err))
   }
 
+  const updatePagination = (info) => {
+    const _tableParams = { ...tableParams }
+
+    _tableParams.pagination = info
+    setTableParams(_tableParams)
+  }
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    setTableParams({
+      pagination,
+      filters,
+      sorter,
+    })
+
+    if (pagination.pageSize !== tableParams.pagination?.pageSize) {
+      setData([])
+    }
+  }
+
+  function updateFilterQUery(term, value) {
+    let filters = { ...filterQuery }
+    if (term != 'page') {
+      filters['page'] = 1
+    }
+
+    if (value) {
+      filters[term] = value
+    } else {
+      filters.hasOwnProperty(term) && delete filters[term]
+    }
+    setFilterQuery(filters)
+  }
 
 
   const columns = [
     {
-      title: 'organization_name',
+      title: 'Organization name',
       dataIndex: 'organization_name',
     },
 
     {
-      title: 'schema_name',
+      title: 'Schema name',
       dataIndex: 'schema_name',
     },
 
@@ -126,10 +179,28 @@ const Tanents = () => {
     },
   ];
 
+  // useEffect(() => {
+  //   getTenantData()
+  // }, []);
+
+
+  useEffect(() => {
+    const _tableParams = tableParams
+    const _filters = { ...filterQuery }
+
+    if (_tableParams) {
+      _filters['page'] = _tableParams.pagination?.current
+      _filters['page_size'] = _tableParams.pagination?.pageSize
+      // _filters['ordering'] = _tableParams?.sorter?.order == 'ascend' ? _tableParams?.sorter?.field : `-${_tableParams?.sorter?.field}`
+    }
+
+    setFilterQuery(_filters)
+
+  }, [JSON.stringify(tableParams)])
+
   useEffect(() => {
     getTenantData()
-  }, []);
-
+  }, [JSON.stringify(filterQuery)])
 
 
   return <>
@@ -140,11 +211,39 @@ const Tanents = () => {
     <Col sm="12" style={{ marginTop: "20px" }}>
       <Card title="Bordered">
         <CardBody>
+
+          <div className="row justify-content-between">
+            <div className="col-lg-5">
+              <div className="d-flex align-items-center">
+                {/* <Link to={"/merchants/add"}>
+                  <Button.Ripple color="primary">Add Merchant</Button.Ripple>
+                </Link> */}
+              </div>
+            </div>
+            <div className="col-lg-5">
+              <div className="d-flex align-items-center ">
+                <input
+                  placeholder="Search Tenant"
+                  name="user_name"
+                  type="text"
+                  class="form-control"
+                  // value=""
+                  onChange={(e) => updateFilterQUery('search', e.target.value)}
+                />
+                {/* <Button.Ripple className="btn-icon ms-1" outline color="primary"> */}
+                  {/* <Search size={16} /> */}
+                  {/* <SearchOutlined /> */}
+                {/* </Button.Ripple> */}
+              </div>
+            </div>
+          </div>
+
           <div className="invoice-title-card">
             <h3> Tanent </h3>
           </div>
           <hr></hr>
-          <Table scroll={{ x: true }} columns={columns} dataSource={tenantData} pagination={2} />
+          {/* <Table scroll={{ x: true }} columns={columns} dataSource={tenantData} pagination={{ pageSize: 50}} /> */}
+          <Table scroll={{ x: true }} columns={columns} dataSource={tenantData} onChange={handleTableChange} pagination={tableParams.pagination} />
         </CardBody>
       </Card>
     </Col>
