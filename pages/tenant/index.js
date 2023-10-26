@@ -6,6 +6,7 @@ import * as qs from 'qs'
 import { Table, Button, Space } from 'antd';
 // import { SearchOutlined } from '@ant-design/icons';
 import { Card, CardBody, Col } from "reactstrap"
+// import { Search } from "react-feather"
 
 import toast, { Toaster } from 'react-hot-toast'
 
@@ -230,10 +231,9 @@ const Tanents = () => {
                   // value=""
                   onChange={(e) => updateFilterQUery('search', e.target.value)}
                 />
-                {/* <Button.Ripple className="btn-icon ms-1" outline color="primary"> */}
-                  {/* <Search size={16} /> */}
-                  {/* <SearchOutlined /> */}
-                {/* </Button.Ripple> */}
+                {/* <Button.Ripple className="btn-icon ms-1" outline color="primary">
+                  <Search size={16} />
+                </Button.Ripple> */}
               </div>
             </div>
           </div>
