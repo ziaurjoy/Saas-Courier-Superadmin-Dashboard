@@ -22,7 +22,6 @@ const Packages = () => {
     getPackagesData()
   }, []);
 
-  console.log('packagesData', packagesData)
 
   return (
     <div className="page_main_content_wrapepr">

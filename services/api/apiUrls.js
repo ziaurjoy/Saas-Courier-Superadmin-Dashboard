@@ -10,6 +10,7 @@ export const apiUrl = {
   SSO: "api/user/sso",
 
   superAdminPacakge: 'api/admin/subscription-package/',
+  superAdminPacakgeSetFeature: 'api/admin/feature/subscription-package/',
   generalSetting: 'api/general-setting/',
   heroSection: 'api/hero-section/',
   featureSection : 'api/feature-section/',

@@ -50,8 +50,11 @@ function DashboardSidebar() {
               <Menu.Item onClick={() => router.push("/landing-page/packages")} icon={<MenuUnfoldOutlined />} key="package-list">
                 <span className="nav-text">List</span>
               </Menu.Item>
-              <Menu.Item onClick={() => router.push("/landing-page/packages/create")} icon={<PlusSquareOutlined />} key="package-create">
+              <Menu.Item onClick={() => router.push("/landing-page/packages/create")} icon={<PlusSquareOutlined />} key="add-package-feature">
                 <span className="nav-text">Create</span>
+              </Menu.Item>
+              <Menu.Item onClick={() => router.push("/landing-page/packages/add-feature")} icon={<PlusSquareOutlined />} key="package-create">
+                <span className="nav-text">Add Feature</span>
               </Menu.Item>
             </Menu.SubMenu>
 

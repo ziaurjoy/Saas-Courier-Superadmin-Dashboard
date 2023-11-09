@@ -52,6 +52,18 @@ class AuthService {
                 return response?.data;
             });
     }
+
+
+    static async subscriptionPackageFeature(formData) {
+        return await authApi
+            .post(BaseApiUrl + apiUrl.superAdminPacakgeSetFeature, formData)
+            .then((response) => {
+                return response?.data;
+            });
+    }
+
 }
+
+
 
 export default AuthService;
