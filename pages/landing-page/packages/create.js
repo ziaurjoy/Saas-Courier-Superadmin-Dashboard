@@ -48,7 +48,7 @@ const CreatePacakge = () => {
         if (data) {
           SwalAlert("Package Created Successfully")
           toast.success("Package Create Successfuly !");
-          router.push('/user/admin/dashboard/packages')
+          router.push('/landing-page/packages')
         }
         return true;
       },
@@ -140,7 +140,7 @@ const CreatePacakge = () => {
             <Input type='number' min={0} />
           </Form.Item>
 
-          <Form.List
+          {/* <Form.List
             name="features"
             initialValue={[{ features: '', status: '' }]}
           >
@@ -194,7 +194,7 @@ const CreatePacakge = () => {
                 </Form.Item>
               </div>
             )}
-          </Form.List>
+          </Form.List> */}
 
 
 
