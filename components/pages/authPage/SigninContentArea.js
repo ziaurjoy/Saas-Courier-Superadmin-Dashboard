@@ -48,7 +48,7 @@ function SigninContentArea() {
             .then(
               (data) => {
                 if (data?.is_superadmin === true) {
-                  router.push('/dashboard');
+                  router.push('/');
                   enterLoading(false)
                 }
                 else {

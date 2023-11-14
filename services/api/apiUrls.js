@@ -17,6 +17,7 @@ export const apiUrl = {
   sponsorSection: 'api/sponsor-section/',
   deliveryStepSection: 'api/delivery-step/section/',
   taskCountTtitleSection: 'api/task/count-title/section/',
+  geSubscriptionData: "api/public/list/subscription-package",
   taskCountFeatureSection: 'api/task/count-feature/section/',
   testimonial: 'api/testimonial/',
   tenant: 'api/user/tenant/',
