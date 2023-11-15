@@ -130,7 +130,7 @@ const CreatePacakge = () => {
             }} />
 
           </Form.Item>
-          <Form.Item label="Billing Days" name='billing_days'>
+          <Form.Item label="Billing Days" name='billing_days' rules={[{ required: true, message: 'Please input billing days Title!', },]}>
             <Input type='number' min={0} />
           </Form.Item>
           <Form.Item label="Trial Days" name='trial_days' rules={[{ required: true, message: 'Please input Trial Days!', },]}>

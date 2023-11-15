@@ -140,6 +140,11 @@ const Tanents = () => {
     },
 
     {
+      title: 'Package',
+      dataIndex: 'package',
+    },
+
+    {
       title: 'Established on',
       dataIndex: 'established_on',
     },
@@ -150,7 +155,7 @@ const Tanents = () => {
       render: (_, record) => (
         <Space size="middle">
           <li style={{ padding: '5px' }}>
-            <Link href={`tenant/${record?.user}`}>
+            <Link href={`tenant/${record?.id}`}>
               <Button type="primary">
                 View
               </Button>
