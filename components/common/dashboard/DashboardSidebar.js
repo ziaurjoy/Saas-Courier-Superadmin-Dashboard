@@ -132,6 +132,12 @@ function DashboardSidebar() {
             </Menu.Item>
           </Menu.SubMenu>
 
+          <Menu.SubMenu key="invoice-page" title="Invoices" icon={< LayoutOutlined />}>
+            <Menu.Item onClick={() => router.push("/invoice")} icon={<MenuUnfoldOutlined />} key="invoice-list">
+              <span className="nav-text">Invoices</span>
+            </Menu.Item>
+          </Menu.SubMenu>
+
         </Menu>
       </Sider>
     </>
