@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import DashboardLayout from '../../../components/common/layouts/DashboardLayout';
+import DashboardLayout from '../../components/common/layouts/DashboardLayout';
 import { EditOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Select, Image, Checkbox } from 'antd';
-function dashboardProfile() {
+function DashboardProfile() {
   const [form] = Form.useForm();
 
   const onFinish = (value) => {
@@ -189,5 +189,5 @@ function dashboardProfile() {
     </>
   );
 }
-dashboardProfile.Layout = DashboardLayout;
-export default dashboardProfile;
+DashboardProfile.Layout = DashboardLayout;
+export default DashboardProfile;

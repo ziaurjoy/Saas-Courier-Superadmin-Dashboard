@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {  BsCheckCircleFill } from 'react-icons/bs';
 import { MdCancel } from 'react-icons/md';
+import DashboardLayout from '../../../components/common/layouts/DashboardLayout';
 
 import { apiUrl } from '../../../services/api/apiUrls';
 import { BaseApiUrl } from '../../../config/config';
 import { authApi } from '../../../services/interceptor/auth.interceptor';
 
-const Packages = () => {
+const PackagesIndex = () => {
   const [packagesData, setPackagesData] = useState()
 
   const getPackagesData = async () => {
@@ -67,4 +68,7 @@ const Packages = () => {
   );
 };
 
-export default Packages;
+// export default Packages;
+
+PackagesIndex.Layout = DashboardLayout;
+export default PackagesIndex;

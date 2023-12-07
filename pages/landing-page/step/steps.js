@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import DashboardLayout from '../../../../../components/common/layouts/DashboardLayout';
+import DashboardLayout from '../../../components/common/layouts/DashboardLayout';
 
 import { Button, Form, Input, Upload, } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 import { Card, CardBody, Col } from "reactstrap"
 
-import AuthService from '../../../../../services/api/auth.service';
+import AuthService from '../../../services/api/auth.service';
 
 import toast, { Toaster } from 'react-hot-toast'
-import SwalAlert from '../../../../../components/SwalAlert/SwalAlert';
+import SwalAlert from '../../../components/SwalAlert/SwalAlert';
 
 
 

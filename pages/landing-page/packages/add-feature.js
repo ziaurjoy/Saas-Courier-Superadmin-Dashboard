@@ -52,6 +52,7 @@ const AddFeature = () => {
         if (data) {
           SwalAlert("Set Subscription Feature Successfully")
           toast.success("Set Subscription Feature !");
+          router.push('/landing-page/packages')
           // router.push('/user/admin/dashboard/packages')
         }
         return true;

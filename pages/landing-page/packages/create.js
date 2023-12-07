@@ -48,7 +48,7 @@ const CreatePacakge = () => {
         if (data) {
           SwalAlert("Package Created Successfully")
           toast.success("Package Create Successfuly !");
-          router.push('/landing-page/packages')
+          router.push('/landing-page/packages/add-feature')
         }
         return true;
       },

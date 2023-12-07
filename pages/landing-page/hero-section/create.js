@@ -37,7 +37,7 @@ const CreateHeroSection = () => {
     await authApi.post(BaseApiUrl + apiUrl.heroSection, formData).then((response)=>{
       SwalAlert('Create Hero Section')
       toast.success('Create Hero Section')
-      router.push('/user/admin/dashboard/heroSection')
+      router.push('/landing-page/hero-section')
     }).catch((err)=>{
       toast.error(`A HeroSection object already exists. You cannot create another one`)
       toast.error(`Create Hero Section Failed ${err}`)

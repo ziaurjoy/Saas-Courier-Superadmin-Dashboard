@@ -16,8 +16,8 @@ import SwalAlert from '../../../../components/SwalAlert/SwalAlert';
 
 
 
-const countTitle = () => {
-  const [countTitleData, setCountTitleData] = useState()
+const CountTitle = () => {
+  const [CountTitleData, setCountTitleData] = useState()
 
   const deleteAction = async (e, id) => {
 
@@ -105,11 +105,11 @@ const countTitle = () => {
             </Link>
           </div>
           <hr></hr>
-          <Table scroll={{ x: true }} columns={columns} dataSource={countTitleData} pagination={2} />
+          <Table scroll={{ x: true }} columns={columns} dataSource={CountTitleData} pagination={2} />
         </CardBody>
       </Card>
     </Col>
   </>;
 };
-countTitle.Layout = DashboardLayout;
-export default countTitle;
+CountTitle.Layout = DashboardLayout;
+export default CountTitle;

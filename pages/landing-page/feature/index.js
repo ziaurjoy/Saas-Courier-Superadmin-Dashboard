@@ -107,7 +107,7 @@ const Features = () => {
         <CardBody>
           <div className="invoice-title-card">
             <h3> Features </h3>
-            <Link href="/dashboard/feature/create">
+            <Link href="/landing-page/feature/create">
               <Button type="primary" color="primary">
                 {" "}
                 + Feature

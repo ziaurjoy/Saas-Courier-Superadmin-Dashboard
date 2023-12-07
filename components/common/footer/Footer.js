@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleUp, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link'
 
 import { api } from '../../../services/interceptor/auth.interceptor';
 import { BaseApiUrl } from '../../../config/config';
 import { apiUrl } from '../../../services/api/apiUrls';
+
 
 const Footer = () => {
 	const [showScroll, setShowScroll] = useState(false);
@@ -121,8 +123,9 @@ const Footer = () => {
 							<div className="footer-usefull-links">
 								<ul>
 									{footerMenu.map((item, index) => (
-										<li>
-											<a href="/">{item.title}</a>
+										<li key={index}>
+											{/* <a href="/">{item.title}</a> */}
+											<Link href="/">{item.title}</Link>
 										</li>
 									))}
 									<li>

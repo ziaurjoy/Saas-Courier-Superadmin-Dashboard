@@ -20,7 +20,21 @@ import * as qs from "qs"
 
 
 function DashboardHeader() {
+  const [userData, setUserData] = useState()
   const router = useRouter();
+
+  const getUserData = async () => {
+    return await authApi.get(BaseApiUrl + apiUrl.getUser)
+      .then((res) => {
+        console.log()
+        setUserData(res.data)
+      })
+      .catch(err => console.log(err))
+  }
+  console.log('userData', userData)
+  useEffect(() => {
+    getUserData()
+  }, [])
 
   const fetchSSOData = () => {
 
@@ -97,12 +111,12 @@ function DashboardHeader() {
     <>
       <Header>
         <div className="dashboard-header">
-          <div>Brand Logo</div>
-          <div>Search Input</div>
+          {/* <div>Brand Logo</div>
+          <div>Search Input</div> */}
         </div>
 
         <div className="dashboard-header-profile-widgets">
-          <Popover
+          {/* <Popover
             content={<a onClick={hideMail}>Close</a>}
             title="Title"
             trigger="click"
@@ -123,7 +137,7 @@ function DashboardHeader() {
             <Badge size="small" count={5}>
               <Avatar size="middle" icon={<BellOutlined />} />
             </Badge>
-          </Popover>
+          </Popover> */}
 
           <div className="dashboard-header-author-info">
             <Badge>
@@ -145,7 +159,8 @@ function DashboardHeader() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <Space>
-                    <span className='avatar-author-name'>Author Name</span>
+                    {/* <span className='avatar-author-name'>Author Name</span> */}
+                    <span style={{textTransform: 'uppercase'}} className='avatar-author-name'>{userData?.name}</span>
                     <DownOutlined
                       style={{ fontSize: '10px' }}
                       className="dashboard-author-arrow-down"

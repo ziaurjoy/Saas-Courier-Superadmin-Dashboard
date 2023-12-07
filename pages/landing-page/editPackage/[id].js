@@ -5,14 +5,14 @@ import { Button, DatePicker, Form, Input, Select } from 'antd';
 import { Card, CardBody, Col } from "reactstrap"
 import toast, { Toaster } from 'react-hot-toast'
 
-import { apiUrl } from '../../../../../services/api/apiUrls';
-import { BaseApiUrl } from '../../../../../config/config';
-import { authApi } from '../../../../../services/interceptor/auth.interceptor';
-import AuthService from '../../../../../services/api/auth.service';
+import { apiUrl } from '../../../services/api/apiUrls';
+import { BaseApiUrl } from '../../../config/config';
+import { authApi } from '../../../services/interceptor/auth.interceptor';
+import AuthService from '../../../services/api/auth.service';
 
-import DashboardLayout from '../../../../../components/common/layouts/DashboardLayout';
-import SwalDeleteConfirm from '../../../../../components/SwalConfirm/SwalDeleteConfirm';
-import SwalAlert from '../../../../../components/SwalAlert/SwalAlert';
+import DashboardLayout from '../../../components/common/layouts/DashboardLayout';
+import SwalDeleteConfirm from '../../../components/SwalConfirm/SwalDeleteConfirm';
+import SwalAlert from '../../../components/SwalAlert/SwalAlert';
 
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';

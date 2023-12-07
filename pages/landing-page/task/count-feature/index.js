@@ -16,7 +16,7 @@ import SwalAlert from '../../../../components/SwalAlert/SwalAlert';
 
 
 
-const countFeatures = () => {
+const CountFeatures = () => {
   const [countFeatureData, setCountFeatureData] = useState()
 
   const deleteAction = async (e, id) => {
@@ -41,6 +41,7 @@ const countFeatures = () => {
   const getCountFeatureData = async () => {
     return await authApi.get(BaseApiUrl + apiUrl.taskCountFeatureSection)
       .then((res) => {
+        console.log('res', res?.data)
         setCountFeatureData(res.data)
       })
       .catch(err => console.log(err))
@@ -118,5 +119,5 @@ const countFeatures = () => {
     </Col>
   </>;
 };
-countFeatures.Layout = DashboardLayout;
-export default countFeatures;
+CountFeatures.Layout = DashboardLayout;
+export default CountFeatures;
