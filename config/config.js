@@ -1,5 +1,5 @@
 // URL CONFIG
-export const BaseApiUrl = 'http://localhost:8000/';
+export const BaseApiUrl = 'http://192.168.68.106:8000/';
 export const baseUrl = 'http://localhost:3001/';
 
 // API CONFIG

@@ -21,6 +21,7 @@ export const apiUrl = {
   taskCountFeatureSection: 'api/task/count-feature/section/',
   testimonial: 'api/testimonial/',
   tenant: 'api/user/tenant/',
+  tenantCount: 'api/user/tenant/count',
   invoice: 'api/invoice/',
 
   publicGeneralSetting: 'api/public/general-setting',
