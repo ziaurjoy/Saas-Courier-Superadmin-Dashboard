@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image'
 import { useRouter } from 'next/router';
 import { TeamOutlined, LayoutOutlined, AppstoreOutlined, MenuUnfoldOutlined, PlusSquareOutlined } from '@ant-design/icons';
 import { Menu, Layout } from 'antd';
+import Logo from '../../../public/images/updatetechlogo.png'
 
-import { apiUrl } from '../../../services/api/apiUrls';
-import { BaseApiUrl } from '../../../config/config';
-import { authApi } from '../../../services/interceptor/auth.interceptor';
+
 
 function DashboardSidebar() {
   const [collapsed, setCollapsed] = useState(false);
-  const [generalSettingData, setGeneralSettingData] = useState();
   const { Sider } = Layout;
   const router = useRouter();
-
-
-  const getGeneralSettingData = async () => {
-    return await authApi.get(BaseApiUrl + apiUrl.generalSetting)
-      .then((res) => {
-        setGeneralSettingData(res.data)
-      })
-      .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    getGeneralSettingData()
-  }, [])
 
   return (
     <>
@@ -40,7 +26,9 @@ function DashboardSidebar() {
                 : 'dashboard-brand-logo-colapsed'
               }`}
           > */}
-          <img style={{ height: '80px', width: '100%' }} src={generalSettingData && generalSettingData[0]?.logo}/>
+
+          <Image src={Logo} style={{ height: '70px', width: '100%' }} alt="Logo" />
+
           {/* </h5> */}
         </div>
 

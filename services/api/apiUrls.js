@@ -10,10 +10,12 @@ export const apiUrl = {
   SSO: "api/user/sso",
 
   superAdminPacakge: 'api/admin/subscription-package/',
+  updateProfile: "api/user/admin-viewset/",
+  getProfile: "api/user/user-profile/",
   superAdminPacakgeSetFeature: 'api/admin/feature/subscription-package/',
   generalSetting: 'api/general-setting/',
   heroSection: 'api/hero-section/',
-  featureSection : 'api/feature-section/',
+  featureSection: 'api/feature-section/',
   sponsorSection: 'api/sponsor-section/',
   deliveryStepSection: 'api/delivery-step/section/',
   taskCountTtitleSection: 'api/task/count-title/section/',
